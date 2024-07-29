@@ -1,0 +1,33 @@
+name: Update Config Identifier
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Runs every week on Sunday at midnight
+  workflow_dispatch:
+
+jobs:
+  update-config:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        
+      - name: Run update script
+        run: python update_identifier.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@users.noreply.github.com'
+          git add heroConfig.json
+          git commit -m 'Update identifier'
+          git push
