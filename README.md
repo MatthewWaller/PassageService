@@ -80,3 +80,5 @@ jobs:
 1. **identifiers.txt**: List of identifiers.
 2. **update_identifier.py**: Python script to update the JSON file.
 3. **.github/workflows/update_config.yml**: GitHub Action workflow to run the script weekly.
+
+{"heroId":" SITvvsDh3XtqOmGXxMne"} // Reef
