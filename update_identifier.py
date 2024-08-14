@@ -3,7 +3,7 @@ import random
 
 # Load the list of identifiers from identifiers.txt
 with open('identifiers.txt', 'r') as f:
-    identifiers = [line.strip() for line in f.readlines()]
+    identifiers = [line.rstrip() for line in f.readlines()]
 
 # Choose a random identifier
 new_identifier = random.choice(identifiers)
